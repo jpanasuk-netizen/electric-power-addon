@@ -1,7 +1,7 @@
 ## Interface: 110000
 ## Title: Electric Power Combo UI
 ## Author: jpanasuk-netizen
-## Version: 1.0
-## Description: Holy Power combo UI with electric blue animations
+## Version: 2.0
+## Description: Holy Power combo UI with electric blue and white animations
 
 ElectricPowerCombo.lua

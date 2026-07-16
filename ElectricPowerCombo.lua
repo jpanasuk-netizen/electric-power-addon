@@ -58,7 +58,7 @@ function (self, unitId, unitFrame, envTable, modTable)
         bar.lastDecrement = 0
         bar.flash = 0
         bar.hasWings = HasWings()
-        bar.gR, bar.gG, bar.gB = 0.25, 0.85, 1.0
+        bar.gR, bar.gG, bar.gB = 0.85, 0.83, 0.82
         bar.auraA = 0.06
 
         bar.aura = bar:CreateTexture(nil, "BACKGROUND")
@@ -115,7 +115,7 @@ function (self, unitId, unitFrame, envTable, modTable)
             co:SetTexCoord(0, 0.25, 0, 0.25)
             co:SetSize(BLOCK, BLOCK)
             co:SetPoint("CENTER", s, "CENTER", 0, 0)
-            co:SetVertexColor(1, 1, 1)
+            co:SetVertexColor(0.97, 0.96, 0.94)
 
             local hot = s:CreateTexture(nil, "OVERLAY")
             hot:SetTexture(STAR_TEX)
@@ -123,7 +123,7 @@ function (self, unitId, unitFrame, envTable, modTable)
             hot:SetBlendMode("ADD")
             hot:SetSize(BLOCK * 0.55, BLOCK * 0.55)
             hot:SetPoint("CENTER", s, "CENTER", 0, 0)
-            hot:SetVertexColor(0.80, 1.0, 1.0)
+            hot:SetVertexColor(0.96, 0.88, 0.52)
             hot:SetAlpha(0)
 
             local sp = s:CreateTexture(nil, "OVERLAY")
@@ -131,13 +131,13 @@ function (self, unitId, unitFrame, envTable, modTable)
             sp:SetBlendMode("ADD")
             sp:SetSize(BLOCK * 1.25, BLOCK * 1.25)
             sp:SetPoint("CENTER", s, "CENTER", 0, 0)
-            sp:SetVertexColor(0.85, 1.0, 1.0)
+            sp:SetVertexColor(0.96, 0.88, 0.62)
             sp:SetAlpha(0)
 
             s.bp, s.ho, s.hi, s.co, s.hot, s.sp = bp, ho, hi, co, hot, sp
             s.spin = 0
             s.curScale = 1
-            s.cR, s.cG, s.cB = 1, 1, 1
+            s.cR, s.cG, s.cB = 0.97, 0.96, 0.94
             s.hoA, s.hiA, s.hotA, s.spA, s.bpA = 0, 0, 0, 0, 0.45
 
             bar.blocks[i] = s
@@ -236,8 +236,8 @@ function (self, unitId, unitFrame, envTable, modTable)
                 mode = "both"
                 baseScale, spinSpeed = 1.65, 2.8
                 local p = (sin(now * 5.5) + 1) / 2
-                coR, coG, coB = 1, 0.95*(1-p)+0.75*p, 1.0
-                gR, gG, gB = 0.50, 1.0, 1.0
+                coR, coG, coB = 0.97, 0.92*(1-p)+0.78*p, 0.85*(1-p)+0.48*p
+                gR, gG, gB = 0.92, 0.88, 0.70
                 haloA, glowA = 0.40, 0.72
                 spineA, auraA = 0.38, 0.12
                 sparkleOn = true
@@ -246,8 +246,8 @@ function (self, unitId, unitFrame, envTable, modTable)
                 mode = "anshe"
                 baseScale, spinSpeed = 1.35, 2.4
                 local p = (sin(now * 4.2) + 1) / 2
-                coR, coG, coB = 1, 0.88*(1-p)+0.60*p, 1.0
-                gR, gG, gB = 0.40, 0.95, 1.0
+                coR, coG, coB = 0.97, 0.90*(1-p)+0.60*p, 0.85*(1-p)+0.15*p
+                gR, gG, gB = 0.90, 0.82, 0.55
                 haloA, glowA = 0.30, 0.58
                 spineA, auraA = 0.32, 0.08
                 sparkleOn = true
@@ -256,8 +256,8 @@ function (self, unitId, unitFrame, envTable, modTable)
                 mode = "wings"
                 baseScale, spinSpeed = 1.45, 2.1
                 local p = (sin(now * 3.8) + 1) / 2
-                coR, coG, coB = 1, 0.60*(1-p)+0.35*p, 1.0
-                gR, gG, gB = 0.35, 0.90, 1.0
+                coR, coG, coB = 0.97, 0.70*(1-p)+0.50*p, 0.50*(1-p)+0.15*p
+                gR, gG, gB = 0.88, 0.75, 0.45
                 haloA, glowA = 0.35, 0.68
                 spineA, auraA = 0.40, 0.10
                 sparkleOn = true
@@ -294,10 +294,10 @@ function (self, unitId, unitFrame, envTable, modTable)
                     if active then
                         tScale = baseScale + sin(t + b.o7) * 0.04
                         if power >= 5 then
-                            tcoR, tcoG, tcoB = 1, 1, 1
+                            tcoR, tcoG, tcoB = 0.97, 0.88, 0.60
                             tHoA, tHiA = 0.18, 0.48
                         else
-                            tcoR, tcoG, tcoB = 0.88 + b.pp*0.12, 0.92 + b.pp*0.08, 1.0
+                            tcoR, tcoG, tcoB = 0.85 + b.pp*0.12, 0.80 + b.pp*0.16, 0.70 + b.pp*0.24
                             tHoA, tHiA = 0.14 + psh*0.05, 0.38
                         end
                         tHotA = 0.30 + psh*0.10
@@ -306,7 +306,7 @@ function (self, unitId, unitFrame, envTable, modTable)
                         tSpin = 1.8
                     else
                         tScale = 0.78 + sin(t + b.o7) * 0.02
-                        tcoR, tcoG, tcoB = 0.20, 0.35, 0.45
+                        tcoR, tcoG, tcoB = 0.45, 0.42, 0.38
                         tHoA, tHiA, tHotA, tSpA = 0.02, 0.02, 0, 0
                         tBpA = 0.28
                         tSpin = 0
